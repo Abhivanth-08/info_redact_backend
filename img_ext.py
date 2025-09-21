@@ -6,7 +6,7 @@ from parser import extract_document_elements
 
 def extract_and_save_images_from_pdf(pdf_path: str, bbox_data: list, output_folder: str = "found_img"):
     os.makedirs(output_folder, exist_ok=True)
-    os.makedirs(output_folder+"\img",exist_ok=True)
+    os.makedirs(output_folder+"/img",exist_ok=True)
     extracted_image_files = []
     try:
         pdf_document = fitz.open(pdf_path)
