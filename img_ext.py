@@ -6,7 +6,7 @@ from parser import extract_document_elements
 
 def extract_and_save_images_from_pdf(pdf_path: str, bbox_data: list, output_folder: str = "found_img"):
     os.makedirs(output_folder, exist_ok=True)
-    os.makedirs(output_folder+"\img",exist_ok=True)
+    os.makedirs(output_folder+"/img",exist_ok=True)
     extracted_image_files = []
     try:
         pdf_document = fitz.open(pdf_path)
@@ -52,7 +52,7 @@ def extract_and_save_images_from_pdf(pdf_path: str, bbox_data: list, output_fold
 
             if pixmap:
                 image_filename = f"image_p{page_no + 1}_x{int(l)}_y{int(t)}_w{int(r - l)}_h{int(b - t)}.png"
-                image_path = os.path.join(output_folder+"\img", image_filename)
+                image_path = os.path.join(output_folder+ "/img" , image_filename)
                 pixmap.save(image_path)
                 extracted_image_files.append(image_path)
                 print(f"  Saved image to: {image_path}")
